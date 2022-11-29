@@ -14,7 +14,7 @@ const MyAppoinments = () => {
 
   const date = format(startDate, 'PP')
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/bookings?date=${date}&email=${user?.email}`;
+  const url = `https://doctors-portal-server-snowy-pi.vercel.app/bookings?date=${date}&email=${user?.email}`;
   const { data: bookings, isLoading, refetch } = useQuery({
     queryKey: ["bookings", date, user?.email,],
     queryFn: async () => {
@@ -32,9 +32,9 @@ const MyAppoinments = () => {
     return Loading;
   }
 
-  console.log(bookings);
-  refetch()
-  console.log(date)
+  
+ 
+ 
   return (
     <div className="overflow-x-auto relative h-screen w-full">
       <div className="font-semibold  flex items-center ">

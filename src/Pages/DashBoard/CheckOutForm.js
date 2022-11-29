@@ -20,7 +20,7 @@ const CheckOutForm = ({ booking }) => {
   const { price ,Patientname ,Patientemail ,_id } = booking;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://doctors-portal-server-snowy-pi.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const CheckOutForm = ({ booking }) => {
 
      }
 
-     fetch('http://localhost:5000/payments', {
+     fetch('https://doctors-portal-server-snowy-pi.vercel.app/payments', {
        method: 'POST',
        headers: {
          'content-type': "application/json",

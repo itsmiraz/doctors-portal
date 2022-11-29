@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <ErrorPage></ErrorPage>,
+   
 
     children: [
       {
@@ -51,26 +51,32 @@ export const router = createBrowserRouter([
         <DashBoad></DashBoad>
       </PrivateRoute>
     ),
-    errorElement: <ErrorPage></ErrorPage>,
+   
     children: [
       {
         path: "/dashboard",
-        element: <DashBoard></DashBoard>,
+        element:<PrivateRoute> <DashBoard></DashBoard></PrivateRoute>,
       },
       {
         path: "/users",
         element: (
-          <AdminRoute>
+          <PrivateRoute>
+            
+            <AdminRoute>
             <Users></Users>
           </AdminRoute>
+         </PrivateRoute>
         ),
       },
       {
         path: "/adddoctor",
         element: (
-          <AdminRoute>
+          <PrivateRoute>
+            
+            <AdminRoute>
             <AddDoctor></AddDoctor>
           </AdminRoute>
+         </PrivateRoute>
         ),
       },
       {
@@ -84,11 +90,11 @@ export const router = createBrowserRouter([
       {
         path: "/payment/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://doctors-portal-server-snowy-pi.vercel.app/bookings/${params.id}`),
         element: (
-          <AdminRoute>
+          <PrivateRoute>
             <Payment></Payment>
-          </AdminRoute>
+          </PrivateRoute>
         ),
       },
     ],
